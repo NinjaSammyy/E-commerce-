@@ -1,6 +1,7 @@
 $(".error-box").hide();
-
+$(".msg_underoverlay").hide();
 $("form[name='insertCategory']").submit(function (e) {
+  let popup_msg = document.getElementsByClassName("popup_msg");
   e.preventDefault();
   if ($("#cat_id").val() != "") {
     let formData = new FormData($(this)[0]);
@@ -10,7 +11,7 @@ $("form[name='insertCategory']").submit(function (e) {
       data: formData,
       async: false,
       success: function (data) {
-        alert(data);
+        // alert(data);
         if (data == 1001) {
           $("#error").html("Data has been Updated Successfully");
           $(".error-box").show();
@@ -244,6 +245,92 @@ function editData(id) {
         $("#error").html("Unable to edit");
         $(".error-box").css("background-color", "#fa5c7c");
         $(".error-box").show();
+        setTimeout(() => {
+          let location = window.location;
+          location.reload();
+        }, 1000);
+      }
+    },
+  });
+}
+
+// Contact us form
+
+$("form[name='contactUs']").submit(function (e) {
+  e.preventDefault();
+  let formData = new FormData($(this)[0]);
+  $.ajax({
+    url: "admin/adminfunction.php?data=contactUs",
+    type: "POST",
+    data: formData,
+    async: false,
+    success: function (data) {
+      // alert(data);
+      if (data == 1000) {
+        $("#error").html(
+          "Due to some techincal error the query is not submitted Please Try again"
+        );
+        $(".error-box").css("background-color", "#fa5c7c");
+        $(".error-box").show();
+        setTimeout(() => {
+          let location = window.location;
+          location.reload();
+        }, 2000);
+      } else if (data == 1001) {
+        console.log("sdf");
+        $("#error").html("Query has been submitted Thankyou!.");
+        $(".error-box").show();
+        $(".error-box").css("background-color", "#0acf97");
+        setTimeout(() => {
+          let location = window.location;
+          location.reload();
+        }, 2000);
+      }
+    },
+    cache: false,
+    contentType: false,
+    processData: false,
+  });
+});
+
+function approvedQuery(id, cus_name, cus_email) {
+  let datastring =
+    "id=" + id + "&cus_name=" + cus_name + "&cus_email" + cus_email;
+  $.ajax({
+    url: "adminfunction.php?action=approvedQuery",
+    data: datastring,
+    type: "POST",
+    success: function (data) {
+      // alert(data);
+      if (data == 1000) {
+        $(".popup_msg").html("The Mail has been send! Please Continue")
+        $(".msg_underoverlay").show();
+        document.querySelector(".popup").style.top = "50%";
+        document.querySelector(".popup").style.transition = "all 1s";
+        setTimeout(() => {
+          $(".msg_underoverlay").hide();
+        }, 1000);
+        setTimeout(() => {
+          let location = window.location;
+          location.reload();
+        }, 1000);
+      } else  if (data == 1001) {
+        $(".popup_msg").html("Due to technical issue mail is not being sent!");
+        $(".msg_underoverlay").show();
+        setTimeout(() => {
+          $(".msg_underoverlay").hide();
+        }, 1000);
+        setTimeout(() => {
+          let location = window.location;
+          location.reload();
+        }, 1000);
+      }
+      else  if (data == 1002) {
+        $(".popup_msg").html("Customer query doesn't exist");
+        $(".msg_underoverlay").show();
+        setTimeout(() => {
+          $(".msg_underoverlay").hide();
+        }, 1000);
         setTimeout(() => {
           let location = window.location;
           location.reload();

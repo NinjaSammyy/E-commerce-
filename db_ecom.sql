@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 24, 2020 at 09:29 AM
+-- Generation Time: Aug 25, 2020 at 12:19 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.2.29
 
@@ -42,7 +42,27 @@ CREATE TABLE `tbl_categories` (
 
 INSERT INTO `tbl_categories` (`id`, `category_name`, `category_img`, `slug`, `meta_title`, `meta_desc`) VALUES
 (67, 'Men', 'products/category/2062376157MensCategory.jpg', 'Mens Clothing', 'Clothing for Mens', 'Huge round of products for mens'),
-(68, 'Womens', 'products/category/2035099435WomenCategory.jpg', 'Womens Clothing', 'Clothing Style for Womens', 'huge round of products for Womens');
+(68, 'Womens', 'products/category/2035099435WomenCategory.jpg', 'Womens Clothing', 'Clothing Style for Women', 'huge round of products for Womens');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_query`
+--
+
+CREATE TABLE `tbl_query` (
+  `id` int(11) NOT NULL,
+  `cus_name` varchar(100) NOT NULL,
+  `cus_email` varchar(100) NOT NULL,
+  `cus_msg` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_query`
+--
+
+INSERT INTO `tbl_query` (`id`, `cus_name`, `cus_email`, `cus_msg`) VALUES
+(17, 'Sourabh', 'semaltysourabh@gmail.com', 'semaltysourabh@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -94,6 +114,12 @@ ALTER TABLE `tbl_categories`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `tbl_query`
+--
+ALTER TABLE `tbl_query`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tbl_subcategories`
 --
 ALTER TABLE `tbl_subcategories`
@@ -114,6 +140,12 @@ ALTER TABLE `userdetails`
 --
 ALTER TABLE `tbl_categories`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
+
+--
+-- AUTO_INCREMENT for table `tbl_query`
+--
+ALTER TABLE `tbl_query`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `tbl_subcategories`
