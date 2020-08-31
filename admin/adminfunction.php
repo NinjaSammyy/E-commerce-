@@ -94,10 +94,16 @@ if ($_REQUEST["data"] == "login") {
     } else {
         $sql = "SELECT * FROM `userDetails` WHERE `email` = '$email'";
         $result = mysqli_query($conn, $sql);
+        $row = mysqli_fetch_array($result);
+        $id = $row['id'];
+
         if (mysqli_num_rows($result) > 0) {
             $sql = "SELECT * FROM `userDetails` WHERE `password` = $pass";
             $response = mysqli_query($conn, $sql);
             if (mysqli_num_rows($response) > 0) {
+                session_start();
+                $_SESSION['id'] = $id;
+                $_SESSION['email'] = $email;
                 echo 402;
             } else {
                 echo 404;
@@ -124,6 +130,13 @@ if ($_REQUEST['action'] == "deleteData") {
     } else {
         echo 402;
     }
+}
+
+if ($_REQUEST['action'] == "logout") {
+    session_start();
+    unset($_SESSION['email']);
+    session_destroy();
+    echo 401;
 }
 
 if ($_REQUEST['action'] == "deleteSd") {

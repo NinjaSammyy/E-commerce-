@@ -78,12 +78,17 @@ nav,
   cursor: pointer;
   color: #f1f1f1;
   padding: 0rem 0.5rem;
-  border-color: var(--indigo);
+  border-color: 0.5px solid var(--indigo);
   box-shadow: 0px 0px 2px rgba(23, 88, 150, 0.726);
   transition: 0.3s all;
 }
 .primary-btn:hover {
   background-color: #535fe2;
+}
+.primary-btn:focus {
+  /* outline: none; */
+  outline-color: var(--blue);
+  /* border: 1px solid var(--info); */
 }
 .secondary-btn {
   background-color: var(--orange);
@@ -976,7 +981,13 @@ tr:hover {
 .contactBg  {
     background-color: #0acf97;
 }
-
+.re_loginbtn {
+  text-align: right;
+  margin: 2rem 1rem;
+}
+.wrongLogin {
+  padding: 0.5rem 1rem;
+}
 #contact input[type="text"],
 #contact input[type="email"],
 #contact input[type="tel"],

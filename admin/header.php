@@ -6,9 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css">
 </head>
+
 <body>
- <!-- Overlay for Setting of right bar -->
- <div id="overlay"></div>
+    <!-- Overlay for Setting of right bar -->
+    <div id="overlay"></div>
     <!-----------------------
          Topbar
      ------------------------->
@@ -68,15 +69,12 @@
              Right Topbar Items
          ------------------------->
         <ul class="right_topbar_items">
-            <li id="search-btn" class="right-topbar-item search-btn-md"><a href="#"><img
-                        src="../img/icons/search-black.svg"></a>
+            <li id="search-btn" class="right-topbar-item search-btn-md"><a href="#"><img src="../img/icons/search-black.svg"></a>
                 <div class="search_dialog_box">
                     <input type="text" placeholder="Search...">
                 </div>
             </li>
-            <li id="language-btn" class="right-topbar-item language_option"><a href="#"><img
-                        src="../img/icons/english-lang.svg"><span class="lang-name">English</span><img class="lang-arrow"
-                        src="../img/icons/downArrow.svg"></a>
+            <li id="language-btn" class="right-topbar-item language_option"><a href="#"><img src="../img/icons/english-lang.svg"><span class="lang-name">English</span><img class="lang-arrow" src="../img/icons/downArrow.svg"></a>
                 <ul class="lang-dropdown">
                     <li><a href="#"><img src="../img/icons/hindi-lang.svg"> Hindi</a></li>
                     <li><a href="#"><img src="../img/icons/english-lang.svg"> Russian</a></li>
@@ -84,8 +82,7 @@
                     <li><a href="#"><img src="../img/icons/india-flag.svg"> French</a></li>
                 </ul>
             </li>
-            <li id="notification-btn" class="right-topbar-item notification-option"><a href="#"><img
-                        src="../img/icons/notification.svg"></a>
+            <li id="notification-btn" class="right-topbar-item notification-option"><a href="#"><img src="../img/icons/notification.svg"></a>
                 <ul class="notification-dropdown">
                     <div class="notifcation-head">
                         <span class="head1"><strong>Notification</strong></span>
@@ -139,7 +136,7 @@
                         <li><a href="#"><img src="../img/icons/accout-setting.svg">Settings</a></li>
                         <li><a href="#"><img src="../img/icons/email-24px.svg"> Support</a></li>
                         <li><a href="#"><img src="../img/icons/screen.svg"> Lock Screen</a></li>
-                        <li><a href="#"><img src="../img/icons/logout.svg"> Logout</a></li>
+                        <li onclick="logoutUser('<?php echo $_SESSION['email'];?>')"><a><img src="../img/icons/logout.svg"> Logout</a></li>
                     </ul>
                 </div>
             </li>
@@ -201,13 +198,11 @@
             Left Navigation bar 
          -->
     <nav>
-        <li class="nav-head-name">Demonic</li>
+        <li class="nav-head-name">D</li>
         <li class="nav-components-name">Navigation</li>
 
         <ul class="nav-dropdown-list">
-            <li id="dropdown-link" class="nav-side-item"><a class="nav-dropdown-menu" href="#"><img
-                        class="nav-menu-image" src="../img/icons/dashboard-black-18dp.svg"><span
-                        class="menu-name">DashBoards</span></a>
+            <li id="dropdown-link" class="nav-side-item"><a class="nav-dropdown-menu" href="#"><img class="nav-menu-image" src="../img/icons/dashboard-black-18dp.svg"><span class="menu-name">DashBoards</span></a>
                 <ul id="dropdown-container" class="menu-dropdown-content">
                     <li><a href="#">Analytics</a></li>
                     <li><a href="#">CRM</a></li>
@@ -218,12 +213,10 @@
 
             <li class="nav-components-name">Apps</li>
 
-            <li class="nav-side-item"><a class="nav-dropdown-menu" href="#"><img class="nav-menu-image"
-                        src="../img/icons/calendar_today-24px.svg"><span class="menu-name">Calendar</span></a></li>
+            <li class="nav-side-item"><a class="nav-dropdown-menu" href="#"><img class="nav-menu-image" src="../img/icons/calendar_today-24px.svg"><span class="menu-name">Calendar</span></a></li>
 
             <li class="nav-components-name">Components</li>
-            <li id="dropdown-link" class="nav-side-item"><a class="nav-dropdown-menu" href="#"><img
-                        class="nav-menu-image" src="../img/icons/work-24px.svg"><span class="menu-name"> Base UI</span></a>
+            <li id="dropdown-link" class="nav-side-item"><a class="nav-dropdown-menu" href="#"><img class="nav-menu-image" src="../img/icons/work-24px.svg"><span class="menu-name"> Base UI</span></a>
                 <ul id="dropdown-container" class="menu-dropdown-content">
                     <li><a href="#">Accordians</a></li>
                     <li><a href="#">Alerts</a></li>
@@ -237,5 +230,4 @@
         </ul>
     </nav>
     </div>
-</body>
-</html>
+    <!-- <script src="../res/main.js"></script> -->
