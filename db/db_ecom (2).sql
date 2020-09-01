@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 25, 2020 at 12:19 PM
+-- Generation Time: Sep 01, 2020 at 09:24 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.2.29
 
@@ -57,13 +57,6 @@ CREATE TABLE `tbl_query` (
   `cus_msg` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `tbl_query`
---
-
-INSERT INTO `tbl_query` (`id`, `cus_name`, `cus_email`, `cus_msg`) VALUES
-(17, 'Sourabh', 'semaltysourabh@gmail.com', 'semaltysourabh@gmail.com');
-
 -- --------------------------------------------------------
 
 --
@@ -93,15 +86,16 @@ INSERT INTO `tbl_subcategories` (`id`, `sub_category_name`, `sub_category_img_na
 CREATE TABLE `userdetails` (
   `id` int(11) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `password` varchar(100) NOT NULL
+  `password` varchar(100) NOT NULL,
+  `nickname` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `userdetails`
 --
 
-INSERT INTO `userdetails` (`id`, `email`, `password`) VALUES
-(1, 'semaltysourabh@gmail.com', '123');
+INSERT INTO `userdetails` (`id`, `email`, `password`, `nickname`) VALUES
+(1, 'semaltysourabh@gmail.com', '4444', 'demon');
 
 --
 -- Indexes for dumped tables
