@@ -321,3 +321,67 @@ function getQueryData()
     }
     return $arr1;
 }
+
+
+// Checking of forgot password real Id
+
+if ($_REQUEST['data'] == 'checkEmail') {
+    include '../db/db.inc.php';
+    $email = $_REQUEST['existemail'];
+
+    $sql = "SELECT * FROM `userdetails` WHERE `email` = '$email'";
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_num_rows($result);
+    if ($row > 0) {
+        session_start();
+        $_SESSION['email'] = $email;
+        echo 401;
+    } else {
+        echo 404;
+    }
+}
+
+if ($_REQUEST['data'] == 'keycheck') {
+    include '../db/db.inc.php';
+    $nickname = $_REQUEST['nickname'];
+
+    $sql = "SELECT * FROM `userdetails` WHERE `nickname` = '$nickname'";
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_num_rows($result);
+    if ($row > 0) {
+        echo 401;
+    } else {
+        echo 404;
+    }
+}
+
+
+if ($_REQUEST['data'] == 'updatePassword') {
+    include '../db/db.inc.php';
+    $pass = $_REQUEST['password'];
+    $cpass = $_REQUEST['cpassword'];
+
+    if ($pass == $cpass) {
+        $validMail = $_REQUEST['validMail'];
+        $sql = "SELECT * FROM `userdetails` WHERE `email` = '$validMail'";
+        $result = mysqli_query($conn, $sql);
+        $row = mysqli_num_rows($result);
+        if ($row > 0) {
+            $sql1 = "UPDATE `userdetails` SET `password` = '$pass' WHERE `email` = '$validMail'";
+            $result = mysqli_query($conn, $sql1);
+            if ($result) {
+                echo 401;
+                unset($_SESSION['email']);
+                session_destroy();
+            } else {
+                echo 404;
+            }
+        } else {
+            echo 404;
+            unset($_SESSION['email']);
+            session_destroy();
+        }
+    } else {
+        echo 402;
+    }
+}

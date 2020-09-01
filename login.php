@@ -31,7 +31,7 @@
             <i class="fa fa-key" aria-hidden="true"></i>
         </div>
         <input type="submit" name="submit" value="Submit"/>
-        <a href="#">Forgot Password?</a>
+        <a href="forgotpassword.php">Forgot Password?</a>
     </form>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="res/admin.js"></script>

@@ -1108,6 +1108,9 @@ fieldset {
   background-color: #fff;
   font-family: 'Poppins', sans-serif;
 }
+.Question_box .q1, .Question_box .q2 , .Question_box .q3{
+  text-align: center;
+}
 .forgot_passsword_nochange {
   text-align: center;
 }
@@ -1116,10 +1119,6 @@ fieldset {
 }
 .Question_box h2 {
   padding: 2rem 0rem;
-}
-.Question_box .q1 {
-  padding: 1rem 0rem;
-  text-align: center;
 }
 .Question_box .smalltitle {
   display: block;

@@ -1,6 +1,6 @@
 $(".error-box").hide();
 $(".msg_underoverlay").hide();
-
+$(".q2").hide();
 $("form[name='insertCategory']").submit(function (e) {
   let popup_msg = document.getElementsByClassName("popup_msg");
   e.preventDefault();
@@ -367,7 +367,104 @@ function logoutUser(email) {
         window.location.assign("../login.php");
       } else if (data == 402) {
         alert("Technical Error");
+        
       }
     },
   });
 }
+
+
+$("form[name='emailCheck']").submit(function (e) {
+  e.preventDefault();
+  let formData = new FormData($(this)[0]);
+  $.ajax({
+    url: "admin/adminfunction.php?data=checkEmail",
+    type: "POST",
+    data: formData,
+    async: false,
+    success: function (data) {
+      // alert(data);
+      if (data == 401) {
+        $(".q1").hide(500);
+        $('.q2').show();
+      } else if (data==404) {
+        $("#error").html("Email Address not Exist!");
+        $(".error-box").css("background-color", "#fa5c7c");
+        $(".error-box").show();
+        reload();
+      }
+    },
+    cache: false,
+    contentType: false,
+    processData: false,
+  });
+});
+
+let count = 0;
+$("form[name='keycheck']").submit(function (e) {
+  e.preventDefault();
+  let formData = new FormData($(this)[0]);
+  $.ajax({
+    url: "admin/adminfunction.php?data=keycheck",
+    type: "POST",
+    data: formData,
+    async: false,
+    success: function (data) {
+      // alert(data);
+      if (data == 401) {
+        $(".q2").hide(500);
+        $('.q3').show();
+      } else if (data==404) {
+        $("#error").html("Wrong Input!");
+        $(".error-box").css("background-color", "#fa5c7c");
+        $(".error-box").show();
+        $(".error-box").hide(1000);
+        count++;
+        // console.log(count);
+        if (count > 2) {
+          reload();
+        }
+      }
+    },
+    cache: false,
+    contentType: false,
+    processData: false,
+  });
+});
+
+
+
+$("form[name='updatePassword']").submit(function (e) {
+  e.preventDefault();
+  let formData = new FormData($(this)[0]);
+  $.ajax({
+    url: "admin/adminfunction.php?data=updatePassword",
+    type: "POST",
+    data: formData,
+    async: false,
+    success: function (data) {
+      // alert(data);
+      if (data==401) {
+        $("#error").html("Your Password has been Successfully Updated...!");
+        $(".error-box").css("background-color", "#0acf97");
+        $(".error-box").show();
+        setTimeout(() => {
+          window.location.assign("login.php");
+        }, 1000);
+      } else if (data==402) {
+        $("#error").html("Passowrd doesn't Match!");
+        $(".error-box").css("background-color", "#fa5c7c");
+        $(".error-box").show();
+        $(".error-box").hide(1000);
+      } else if (data==404) {
+        $("#error").html("Technical Error...! Try again Later");
+        $(".error-box").css("background-color", "#fa5c7c");
+        $(".error-box").show();
+        window.location.assign("login.php");
+      }
+    },
+    cache: false,
+    contentType: false,
+    processData: false,
+  });
+});
