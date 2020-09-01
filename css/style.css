@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 @font-face {
   font-family: "lato";
   src: url("../fonts/lato/Lato-Regular.ttf");
@@ -458,6 +459,9 @@ left Topbar Items Conatiner
 }
 .account-dropdown-items {
   list-style-type: none;
+}
+.account-dropdown-items li {
+  cursor: pointer;  
 }
 .account-dropdown-items li a {
   font-size: 14px;
@@ -1091,6 +1095,55 @@ fieldset {
 }
 :-ms-input-placeholder {
   color: #888;
+}
+
+
+/***********************
+ Forgot Password styling
+************************/
+.Question_box {
+  min-width: 300px;
+  max-width: 400px;
+  margin: 2rem auto;
+  background-color: #fff;
+  font-family: 'Poppins', sans-serif;
+}
+.forgot_passsword_nochange {
+  text-align: center;
+}
+.Question_box h2 ,.Question_box p{
+  text-align: center;
+}
+.Question_box h2 {
+  padding: 2rem 0rem;
+}
+.Question_box .q1 {
+  padding: 1rem 0rem;
+  text-align: center;
+}
+.Question_box .smalltitle {
+  display: block;
+  text-align: center;
+  font-size: 14px;
+  opacity: 0.8;
+  margin: 0.5rem 0rem;
+}
+.Question_box .inputEmail {
+  padding: 0.5rem 2rem;
+  display: block;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #aaa;
+  margin: 2rem auto 0rem auto;
+}
+.Question_box .formNbtn {
+  margin-top: 1rem;
+  padding: 0.6rem 1.8rem;
+  border-radius: 10px;
+  background-color: tomato;
+}
+.Question_box .formNbtn:hover {
+  background-color: rgb(236, 77, 49);
 }
 /************************ 
 

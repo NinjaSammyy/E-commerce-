@@ -1,5 +1,6 @@
 $(".error-box").hide();
 $(".msg_underoverlay").hide();
+
 $("form[name='insertCategory']").submit(function (e) {
   let popup_msg = document.getElementsByClassName("popup_msg");
   e.preventDefault();
@@ -364,7 +365,6 @@ function logoutUser(email) {
       if (data == 401) {
         alert("Successfully logout");
         window.location.assign("../login.php");
-        
       } else if (data == 402) {
         alert("Technical Error");
       }
